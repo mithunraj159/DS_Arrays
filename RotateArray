@@ -1,0 +1,42 @@
+import UIKit
+
+/*
+ Question:
+ 
+ Given an array of integers arr[] of size N and an integer d, the task is to rotate the array elements to the left by d positions.
+
+ Examples:
+
+ Input:  d = 2 , arr[] = {1, 2, 3, 4, 5, 6, 7}
+ Output: 3 4 5 6 7 1 2
+
+ Input:  d = 4, arr[] = {3, 4, 5},
+ Output: 4 5 3
+ */
+
+func logicForRotateArray(arr: [Int], rotateCount: Int) -> [Int] {
+    let tempArr = arr
+    var firstReverseArray = [Int]()
+    var secondReverseArray = [Int]()
+    var finalReverseArray = [Int]()
+    
+    for i in 0..<rotateCount {
+        firstReverseArray.append(tempArr[i])
+    }
+        
+    for i in rotateCount..<tempArr.count {
+        secondReverseArray.append(tempArr[i])
+    }
+    
+    
+    print("firstReverseArray is \(firstReverseArray)")
+    print("secondReverseArray is \(secondReverseArray)")
+    
+    finalReverseArray = secondReverseArray + firstReverseArray
+    
+    print("finalReverseArray is \(finalReverseArray)")
+    
+    return finalReverseArray
+}
+
+print("final array is \(logicForRotateArray(arr: [1, 2, 3, 4, 5, 6, 7], rotateCount: 2))")
