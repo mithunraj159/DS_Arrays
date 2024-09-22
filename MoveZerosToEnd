@@ -1,0 +1,57 @@
+import UIKit
+
+/*
+ Given an array of random numbers, Push all the zero’s of a given array to the end of the array. For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is O(n) and extra space is O(1).
+
+ Example:
+
+ Input : arr[] = {1, 2, 0, 4, 3, 0, 5, 0};
+ Output : arr[] = {1, 2, 4, 3, 5, 0, 0, 0};
+ Explanation : There are three 0s that are moved to end
+
+ Input : arr[] = {1, 2, 0, 0, 0, 3, 6};
+ Output : arr[] = {1, 2, 3, 6, 0, 0, 0};
+
+ Input: arr[] = {10, 20, 30}
+ Output : arr[] = {10, 20, 30}
+ Explanation : No change in array as there are NO 0s
+
+ Input: arr[] = {0 , 0}
+ Output : arr[] = {0, 0}
+ Explanation : No change in array as there are ALL 0s
+ */
+
+func logicForMoveZerosToEnd(arr: [Int]) {
+    var tempArr = arr
+    
+    var j = -1
+    
+    for i in 0..<tempArr.count {
+      //  print("i is \(i)")
+        if tempArr[i] == 0 {
+            j = i
+            print("j is \(j)")
+            break
+        }
+    }
+    
+    for i in j+1..<tempArr.count {
+        print("i in second is \(i)")
+        print("j in second is \(j)")
+        if tempArr[i] != 0 {
+            let temp = tempArr[i]
+            tempArr[i] = tempArr[j]
+            tempArr[j] = temp
+            
+            j += 1
+        }
+    }
+    
+    print("tempArray is \(tempArr)")
+}
+
+
+
+logicForMoveZerosToEnd(arr: [1, 2, 0, 4, 3, 0, 5, 0])
+
+
